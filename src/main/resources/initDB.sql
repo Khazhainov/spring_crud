@@ -3,7 +3,8 @@ CREATE DATABASE IF NOT EXISTS crud;
 
 USE crud;
 
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS users
+(
     id        INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name      VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
@@ -12,14 +13,16 @@ CREATE TABLE IF NOT EXISTS users (
 )
     ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS roles (
+CREATE TABLE IF NOT EXISTS roles
+(
     id   INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     role VARCHAR(100) NOT NULL
 )
     ENGINE = InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS user_roles (
+CREATE TABLE IF NOT EXISTS user_roles
+(
     user_id INT NOT NULL,
     role_id INT NOT NULL,
 
@@ -30,9 +33,15 @@ CREATE TABLE IF NOT EXISTS user_roles (
 )
     ENGINE = InnoDB;
 
-INSERT INTO users VALUES (1, 'Danil', 'Khazhainov', 'danil.khazhainov@gmail.com', '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG');
+INSERT INTO roles
+VALUES (1, 'ROLE_USER');
+INSERT INTO roles
+VALUES (2, 'ROLE_ADMIN');
 
-INSERT INTO roles VALUES (1, 'ROLE_USER');
-INSERT INTO roles VALUES (2, 'ROLE_ADMIN');
+INSERT INTO users
+VALUES (1, 'Admin', 'Admin', 'Admin', 'Admin');
 
-INSERT INTO user_roles VALUES (1, 2);
+INSERT INTO user_roles
+VALUES (1, 1);
+INSERT INTO user_roles
+VALUES (1, 2);
